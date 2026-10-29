@@ -1,0 +1,70 @@
+{
+  "manifestVersion": 5,
+  "id": "com.leoda.envato-audio-bridge",
+  "name": "Envato Audio Bridge",
+  "shortname": "Envato Audio",
+  "version": "0.3.0",
+  "main": "index.html",
+  "host": {
+    "app": "premierepro",
+    "minVersion": "25.6.0"
+  },
+  "requiredPermissions": {
+    "localFileSystem": "fullAccess",
+    "network": { "domains": ["https://api.github.com"] },
+    "launchProcess": { "schemes": ["https"] },
+    "webview": {
+      "allow": "yes",
+      "domains": "all",
+      "enableMessageBridge": "no"
+    }
+  },
+  "featureFlags": {
+    "uncaughtException": true,
+    "unhandledRejection": true
+  },
+  "icons": [
+    {
+      "width": 48,
+      "height": 48,
+      "path": "icons/plugin-icon.svg",
+      "scale": [1, 2],
+      "theme": ["darkest", "dark", "medium", "lightest", "light", "all"],
+      "species": ["pluginList"]
+    }
+  ],
+  "entrypoints": [
+    {
+      "id": "envatoAudioPanel",
+      "type": "panel",
+      "label": {
+        "default": "Envato Audio"
+      },
+      "minimumSize": {
+        "width": 320,
+        "height": 420
+      },
+      "maximumSize": {
+        "width": 2400,
+        "height": 2400
+      },
+      "preferredDockedSize": {
+        "width": 520,
+        "height": 760
+      },
+      "preferredFloatingSize": {
+        "width": 900,
+        "height": 800
+      },
+      "icons": [
+        {
+          "width": 23,
+          "height": 23,
+          "path": "icons/panel-icon.svg",
+          "scale": [1, 2],
+          "theme": ["darkest", "dark", "medium", "lightest", "light"]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,80 @@
+<!doctype html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <main class="app-shell">
+      <header class="toolbar">
+        <div class="brand" title="Ferramenta independente, nao afiliada a Envato">
+          <span class="brand-mark">E</span>
+          <span class="brand-copy">
+            <strong>Envato Audio</strong>
+            <small>Bridge para Premiere</small>
+          </span>
+        </div>
+
+        <nav class="tabs" aria-label="Categorias">
+          <button class="tab active" id="musicTab" type="button">Musicas</button>
+          <button class="tab" id="sfxTab" type="button">SFX</button>
+        </nav>
+
+        <div class="toolbar-actions">
+          <button class="icon-button" id="openBrowserButton" type="button" title="Abrir Envato no navegador (alternativa de login)">↗</button>
+          <button class="icon-button" id="homeButton" type="button" title="Voltar para a pagina inicial">⌂</button>
+          <button class="icon-button" id="reloadButton" type="button" title="Recarregar">↻</button>
+          <button class="icon-button" id="settingsButton" type="button" title="Configuracoes">⚙</button>
+        </div>
+      </header>
+
+      <section class="statusbar">
+        <span class="status-dot" id="statusDot"></span>
+        <span id="statusText">Aguardando inicializacao...</span>
+        <span class="status-spacer"></span>
+        <button class="link-button" id="retryLatestButton" type="button">Tentar ultimo</button>
+        <button class="link-button" id="importFileButton" type="button">Importar arquivo</button>
+      </section>
+
+      <section class="settings-panel" id="settingsPanel">
+        <div class="setting-copy">
+          <strong>Fluxo automatico</strong>
+          <span>O painel observa Downloads, extrai em <b>Envato Audio</b> ao lado do projeto e organiza em <b>MUSICAS</b> ou <b>SFX</b> no painel Projeto.</span>
+        </div>
+        <label class="field-label" for="downloadsPath">Pasta observada</label>
+        <div class="path-row">
+          <input id="downloadsPath" type="text" readonly />
+          <button id="chooseDownloadsButton" type="button">Escolher</button>
+        </div>
+        <div class="path-row compact">
+          <span id="projectPath">Salve um projeto para definir o destino.</span>
+          <button id="refreshProjectButton" type="button">Atualizar projeto</button>
+        </div>
+        <div class="path-row compact"><span id="version"></span><button id="checkUpdatesButton" type="button">Verificar atualizações</button></div>
+      </section>
+
+      <section class="browser-wrap">
+        <div class="browser-loader" id="browserLoader">
+          <span class="spinner"></span>
+          <span>Carregando Envato Elements...</span>
+        </div>
+        <webview
+          id="envatoWebview"
+          src="https://elements.envato.com/royalty-free-music"
+          width="100%"
+          height="100%"
+          uxpallowinspector="true"
+        ></webview>
+      </section>
+
+      <footer class="activity" id="activityBar">
+        <span class="activity-icon">↓</span>
+        <span id="activityText">Baixe uma musica ou SFX; o resto acontece sozinho.</span>
+        <button class="link-button" id="updateButton" type="button" hidden>↑ Atualizar</button>
+      </footer>
+    </main>
+
+    <script src="main.js"></script>
+  </body>
+</html>
